@@ -50,6 +50,11 @@ public class EventoController {
 		return mv;
 	}
 	
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public String indexEvento() {
+		return "redirect:/eventos";
+	}
+	
 	@RequestMapping(value="/{codigo}", method=RequestMethod.GET)
 	public ModelAndView detalhesEvento(@PathVariable("codigo") long codigo) {
 		Evento evento = er.findByCodigo(codigo);
