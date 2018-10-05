@@ -71,6 +71,8 @@ public class EventoController {
 	public String deletarEvento(long codigo) {
 		Evento evento = er.findByCodigo(codigo);
 		
+		Iterable<Convidado> convidados = cr.findByEvento(evento);
+		cr.delete(convidados);
 		er.delete(evento);
 		return "redirect:/eventos";
 	}
