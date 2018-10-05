@@ -49,6 +49,7 @@
 				<th>Nome Convidado</th>
 				<th>RG</th>
 				<th>OBS</th>
+				<th>Alterar</th>
 				<th>Deletar</th>
 			</tr>
 		</thead>
@@ -57,7 +58,8 @@
 				<td><span th:text="${convidado.nomeConvidado}"></span></td>
 				<td><span th:text="${convidado.rg}"></span></td>
 				<td><span th:text="${convidado.observacao}"></span></td>
-				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('EC#deletarConvidado').arg(0, convidado.rg)).build()}"><i class="material-icons left">delete</i></a></td>
+				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('EC#convidadoEvento').arg(0, convidado.rg)).build()}"><i class="material-icons center">update</i></a></td>
+				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('EC#deletarConvidado').arg(0, convidado.rg)).build()}"><i class="material-icons center">delete</i></a></td>
 			</tr>
 		</tbody>
 	</table>

@@ -102,4 +102,13 @@ public class EventoController {
 		return "redirect:/" + codigo;
 	}
 	
+	@RequestMapping(value="/convidado/{rg}", method=RequestMethod.GET)
+	public ModelAndView convidadoEvento(@PathVariable("rg") String rg) {
+		Convidado convidado = cr.findByRg(rg);
+		ModelAndView mv = new ModelAndView("convidado/formConvidado");
+		mv.addObject("convidado", convidado);
+		
+		return mv;
+	}
+	
 }
