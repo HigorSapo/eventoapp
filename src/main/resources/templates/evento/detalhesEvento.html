@@ -39,6 +39,7 @@
 		<form method="post">
 			Nome: <input type="text" value="" name="nomeConvidado"/>
 			Rg: <input type="text" value="" name="rg"/>
+			Observação: <input type="text" value="" name="observacao"/>
 			<button class="waves-effect waves-light btn" type="submit">Adicionar</button>
 		</form>
 	</div>
@@ -47,6 +48,7 @@
 			<tr>
 				<th>Nome Convidado</th>
 				<th>RG</th>
+				<th>OBS</th>
 				<th>Deletar</th>
 			</tr>
 		</thead>
@@ -54,6 +56,7 @@
 			<tr th:each="convidado : ${convidados}">
 				<td><span th:text="${convidado.nomeConvidado}"></span></td>
 				<td><span th:text="${convidado.rg}"></span></td>
+				<td><span th:text="${convidado.observacao}"></span></td>
 				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('EC#deletarConvidado').arg(0, convidado.rg)).build()}"><i class="material-icons left">delete</i></a></td>
 			</tr>
 		</tbody>

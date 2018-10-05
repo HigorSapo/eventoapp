@@ -16,6 +16,8 @@ public class Convidado {
 	@NotEmpty
 	private String nomeConvidado;
 	
+	private String observacao;
+	
 	@ManyToOne
 	private Evento evento;
 	
@@ -36,6 +38,12 @@ public class Convidado {
 	}
 	public void setEvento(Evento evento) {
 		this.evento = evento;
+	}
+	public String getObservacao() {
+		return observacao;
+	}
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
 	}
 	
 	
