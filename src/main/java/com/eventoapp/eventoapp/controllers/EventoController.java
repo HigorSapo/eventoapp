@@ -111,4 +111,24 @@ public class EventoController {
 		return mv;
 	}
 	
+	@RequestMapping(value="/convidado/{rg}", method=RequestMethod.POST)
+	public String salvaDetalhesConvidado(
+			@PathVariable("rg") String rg, 
+			@Valid Convidado convidado, 
+			BindingResult result, 
+			RedirectAttributes attributes
+	) {
+		if (result.hasErrors()) {
+			attributes.addFlashAttribute("mensagem", "Verifique os campo");
+			return "redirect:/convidado/{rg}";
+		}
+		
+		Convidado convidadoRg = cr.findByRg(rg);
+		convidadoRg.setNomeConvidado(convidado.getNomeConvidado());
+		convidadoRg.setObservacao(convidado.getObservacao());
+		
+		cr.save(convidadoRg);
+		return "redirect:/convidado/{rg}";
+	}
+	
 }
