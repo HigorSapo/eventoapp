@@ -105,8 +105,11 @@ public class EventoController {
 	@RequestMapping(value="/convidado/{rg}", method=RequestMethod.GET)
 	public ModelAndView convidadoEvento(@PathVariable("rg") String rg) {
 		Convidado convidado = cr.findByRg(rg);
+		Evento evento = convidado.getEvento();
+		
 		ModelAndView mv = new ModelAndView("convidado/formConvidado");
 		mv.addObject("convidado", convidado);
+		mv.addObject("evento", evento);
 		
 		return mv;
 	}
